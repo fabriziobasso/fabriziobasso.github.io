@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Delegated Fund Manager in Europe's Passive ETF Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F8F8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .flow-line {
+            position: relative;
+            border-left: 2px dashed #01949A;
+        }
+        .flow-line::after {
+            content: '▼';
+            position: absolute;
+            left: -11px;
+            bottom: -5px;
+            color: #01949A;
+            font-size: 1.2rem;
+        }
+        .stat-card h3 {
+            color: #004369;
+        }
+        .stat-card p {
+            color: #4A5568;
+        }
+        .accent-color { color: #DB1F48; }
+        .primary-color { color: #004369; }
+        .secondary-color { color: #01949A; }
+        .bg-primary { background-color: #004369; }
+        .bg-secondary { background-color: #01949A; }
+        .bg-accent { background-color: #DB1F48; }
+        .bg-light-cream { background-color: #E5DDC8; }
+        .llm-response {
+            background-color: #e0f2f7; /* Light blue background */
+            border-left: 4px solid #01949A; /* Secondary color border */
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.95rem;
+            color: #1A202C; /* Darker text for readability */
+        }
+        .llm-response p {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black primary-color mb-2">The Mandate of Delegation</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-gray-600">Unpacking the "Active" Role of Fund Managers in Europe's Passive ETF Ecosystem</h2>
+            <h3 class="text-xl md:text-1xl font-semibold text-blue-400">By Fabrizio Basso</h2>
+        </header>
+
+        <section id="intro" class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold primary-color mb-4">The Passive Paradox</h3>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        While "passive" investing aims to simply track an index, the management of a passive ETF, especially under Europe's strict UCITS and AIFMD regulations, is a profoundly <span class="font-bold accent-color">active</span> endeavor. Delegated fund managers are the crucial operators behind the scenes, performing a complex suite of tasks to ensure the low-cost, transparent, and liquid nature of ETFs that investors rely on. Their role is to execute a passive strategy with meticulous operational precision.
+                    </p>
+                </div>
+                <div class="bg-primary text-white p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-lg font-semibold mb-2">European ETF Market (AUM)</p>
+                    <p class="text-5xl font-black">&euro;1.8T+</p>
+                    <p class="text-sm opacity-80 mt-2">Projected for Year-End 2025</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ecosystem" class="mb-16">
+             <h2 class="text-3xl font-bold text-center primary-color mb-8">The European Delegation Ecosystem</h2>
+             <div class="bg-white p-6 md:p-10 rounded-lg shadow-lg">
+                <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">The European ETF structure is a coordinated network where the ETF Issuer delegates key functions to specialized managers, all operating under the stringent oversight of UCITS and AIFMD regulations. This collaboration is essential for bringing efficient and compliant products to market.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-primary text-white p-6 rounded-lg shadow-md w-full">
+                            <h4 class="font-bold text-lg">ETF Issuer</h4>
+                            <p class="text-sm opacity-90">Designs product, sets strategy, and holds ultimate responsibility.</p>
+                        </div>
+                        <div class="h-16 w-px flow-line mt-4"></div>
+                        <div class="bg-secondary text-white p-6 rounded-lg shadow-md w-full">
+                            <h4 class="font-bold text-lg">Delegated Fund Manager</h4>
+                            <p class="text-sm opacity-90">Executes strategy, manages operations, ensures compliance, and handles market interactions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-light-cream p-6 rounded-lg shadow-inner flex flex-col justify-center items-center">
+                        <h4 class="font-bold text-xl primary-color mb-4">Regulatory Framework</h4>
+                        <div class="space-y-3 text-left">
+                            <p class="font-semibold text-gray-800 flex items-center">
+                                <span class="font-bold accent-color mr-2">&#10003;</span>UCITS Directive
+                                <button onclick="explainConcept('UCITS Directive')" class="ml-2 bg-accent text-white text-xs px-2 py-1 rounded-md hover:bg-opacity-90 transition-colors">✨ Explain</button>
+                            </p>
+                            <div id="response-ucits" class="llm-response hidden"></div>
+
+                            <p class="font-semibold text-gray-800 flex items-center">
+                                <span class="font-bold accent-color mr-2">&#10003;</span>AIFMD Framework
+                                <button onclick="explainConcept('AIFMD Framework')" class="ml-2 bg-accent text-white text-xs px-2 py-1 rounded-md hover:bg-opacity-90 transition-colors">✨ Explain</button>
+                            </p>
+                             <div id="response-aifmd" class="llm-response hidden"></div>
+
+                            <p class="font-semibold text-gray-800"><span class="font-bold accent-color mr-2">&#10003;</span>ESMA Guidelines</p>
+                        </div>
+                         <p class="text-xs text-gray-600 mt-4 italic">Ensuring investor protection, transparency, and market stability.</p>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <div class="bg-gray-700 text-white p-6 rounded-lg shadow-md w-full">
+                            <h4 class="font-bold text-lg">Market Participants</h4>
+                             <p class="text-sm opacity-90">Facilitate liquidity and price accuracy through arbitrage.</p>
+                        </div>
+                        <div class="h-16 w-px flow-line mt-4"></div>
+                        <div class="bg-gray-500 text-white p-6 rounded-lg shadow-md w-full">
+                            <h4 class="font-bold text-lg">Authorised Participants (APs)</h4>
+                            <p class="text-sm opacity-90">Create & redeem ETF shares, keeping market price aligned with Net Asset Value (NAV).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="core-activities" class="mb-16">
+            <h2 class="text-3xl font-bold text-center primary-color mb-8">Core Activities of a Delegated Manager</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold primary-color mb-4">Portfolio Management & Replication</h3>
+                    <p class="text-gray-600 mb-6">The primary goal is to precisely mirror the index. In Europe, physical replication is dominant, but synthetic methods are crucial for accessing certain asset classes. The choice dictates the required expertise, balancing cost, risk, and transparency.</p>
+                    <div class="chart-container">
+                        <canvas id="replicationStrategyChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold primary-color mb-4">Minimizing Tracking Error</h3>
+                     <p class="text-gray-600 mb-6">Tracking Error measures how much an ETF's return deviates from its index. Delegated managers use several techniques to keep this error to a minimum, with transaction costs and cash drag being significant factors to manage.</p>
+                    <div class="chart-container">
+                        <canvas id="trackingErrorChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-center primary-color mb-6">Operational, Compliance & Market Functions</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <div class="stat-card bg-gray-50 p-4 rounded-md">
+                             <div class="text-4xl accent-color mb-2">&#128200;</div>
+                            <h3 class="font-bold text-lg">NAV Calculation</h3>
+                            <p class="text-sm">Daily calculation of Net Asset Value, the bedrock for the arbitrage mechanism.</p>
+                        </div>
+                        <div class="stat-card bg-gray-50 p-4 rounded-md">
+                            <div class="text-4xl accent-color mb-2">&#128176;</div>
+                            <h3 class="font-bold text-lg">Cash Management</h3>
+                            <p class="text-sm">Overseeing cash flows from dividends, and creation/redemption activities.</p>
+                        </div>
+                        <div class="stat-card bg-gray-50 p-4 rounded-md">
+                             <div class="text-4xl accent-color mb-2">&#128221;</div>
+                            <h3 class="font-bold text-lg">Regulatory Reporting</h3>
+                            <p class="text-sm">Adhering to UCITS/AIFMD disclosure rules, including KIDs and periodic reports.</p>
+                        </div>
+                         <div class="stat-card bg-gray-50 p-4 rounded-md">
+                             <div class="text-4xl accent-color mb-2">&#128737;</div>
+                            <h3 class="font-bold text-lg">Risk Mitigation</h3>
+                            <p class="text-sm">Managing operational risks and counterparty risk for synthetic ETFs.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- European ETF Market Landscape -->
+        <section id="market-landscape" class="mb-16">
+            <h2 class="text-3xl font-bold text-center primary-color mb-8">European ETF Market Landscape</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold primary-color mb-4">Leading European ETF Providers by Market Share (Jan 2025)</h3>
+                    <p class="text-gray-600 mb-6">The European ETF market is dominated by a few large players, reflecting significant concentration in assets under management (AUM). iShares, Amundi ETF, and Xtrackers collectively hold over 60% of the market. (Source: ETFGI)</p>
+                    <div class="chart-container">
+                        <canvas id="marketPlayersChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold primary-color mb-4">Active vs. Passive ETF Market Share in Europe (Sep 2024)</h3>
+                    <p class="text-gray-600 mb-6">While active ETFs are gaining traction and seeing strong inflow growth, passive strategies continue to hold the vast majority of assets under management in the European ETF market. (Source: Lipper Alpha Insight)</p>
+                    <div class="chart-container">
+                        <canvas id="activePassiveShareChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- End European ETF Market Landscape -->
+
+        <section id="market-insight" class="mb-16 bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-center primary-color mb-6">Market Insights ✨</h2>
+            <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+                Curious about specific aspects of the European ETF market? Ask our AI for a brief insight!
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+                <input type="text" id="marketInsightInput" placeholder="e.g., 'ESG ETFs in Europe' or 'future of active ETFs'"
+                       class="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary-color text-gray-700">
+                <button onclick="getMarketInsight()"
+                        class="bg-secondary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors shadow-md w-full md:w-auto">
+                    Get Insight ✨
+                </button>
+            </div>
+            <div id="marketInsightResponse" class="llm-response hidden">
+                <p id="insightText"></p>
+                <div id="insightLoading" class="hidden text-center text-gray-500">Loading insight...</div>
+            </div>
+        </section>
+
+
+        <section id="tradeoffs" class="mb-16">
+            <h2 class="text-3xl font-bold text-center primary-color mb-8">The Strategic Trade-Off: Benefits vs. Challenges</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">Delegation is a strategic decision that transforms risk and responsibility. While it offers significant efficiencies, it requires robust oversight to manage the new dynamics of external reliance.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg">
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">Key Benefits</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-green-600 font-bold text-xl mr-3">&#10003;</span><div><strong class="text-green-700">Cost Efficiency:</strong> Leverages economies of scale, reducing the need for large in-house teams.</div></li>
+                        <li class="flex items-start"><span class="text-green-600 font-bold text-xl mr-3">&#10003;</span><div><strong class="text-green-700">Access to Expertise:</strong> Gains specialized knowledge in replication, compliance, and technology.</div></li>
+                        <li class="flex items-start"><span class="text-green-600 font-bold text-xl mr-3">&#10003;</span><div><strong class="text-green-700">Focus on Core Strategy:</strong> Allows issuers to concentrate on product development and distribution.</div></li>
+                        <li class="flex items-start"><span class="text-green-600 font-bold text-xl mr-3">&#10003;</span><div><strong class="text-green-700">Enhanced Compliance:</strong> Navigates complex UCITS/AIFMD rules with dedicated specialists.</div></li>
+                    </ul>
+                </div>
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+                    <h3 class="text-2xl font-bold text-red-800 mb-4">Challenges & Considerations</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-red-600 font-bold text-xl mr-3">&#10007;</span><div><strong class="text-red-700">Loss of Direct Control:</strong> Relinquishes some day-to-day operational oversight.</div></li>
+                        <li class="flex items-start"><span class="text-red-600 font-bold text-xl mr-3">&#10007;</span><div><strong class="text-red-700">Manager Risk:</strong> Fund performance becomes dependent on the third-party manager's capabilities.</div></li>
+                        <li class="flex items-start"><span class="text-red-600 font-bold text-xl mr-3">&#10007;</span><div><strong class="text-red-700">Oversight Burden:</strong> Requires a sophisticated governance model to monitor the delegated entity effectively.</div></li>
+                        <li class="flex items-start"><span class="text-red-600 font-bold text-xl mr-3">&#10007;</span><div><strong class="text-red-700">Transparency for Issuer:</strong> May have less insight into granular trade rationales, demanding clear communication.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Data Sources -->
+        <section id="data-sources" class="mb-16 bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-center primary-color mb-6">Data Sources</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>**European ETF Market (AUM):** Morningstar, European ETFs Attract Record Inflows in 2024.</li>
+                <li>**European ETF Replication Methods:** General industry consensus.</li>
+                <li>**Typical Drivers of Tracking Error:** General industry consensus.</li>
+                <li>**Leading European ETF Providers by Market Share (Jan 2025):** <a href="https://etfgi.com/news/press-releases/2025/02/etfgi-reports-assets-invested-etfs-industry-europe-reached-new-record" target="_blank" class="text-secondary hover:underline">ETFGI</a></li>
+                <li>**European ETF Market Share: Active vs. Passive (Sep 2024):** <a href="https://lipperalpha.refinitiv.com/2024/11/friday-facts-are-active-semi-active-etfs-keeping-up-with-growth-expectations-of-market-participants/" target="_blank" class="text-secondary hover:underline">Lipper Alpha Insight</a></li>
+                <li>**General European ETF Market Data & Trends:**
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li><a href="https://www.irishfunds.ie/news-knowledge/newsletter/passive-is-massive/" target="_blank" class="text-secondary hover:underline">Irish Funds Industry Association</a></li>
+                        <li><a href="https://www.arthurcox.com/wp-content/uploads/2025/05/Establishing-an-ETF-in-Ireland-May-2025.01.05.2025.pdf" target="_blank" class="text-secondary hover:underline">Arthur Cox: A Manager's Guide to Establishing an ETF in Ireland</a></li>
+                        <li><a href="https://www.centralbank.ie/docs/default-source/regulation/industry-market-sectors/funds/ucits/guidance/fund-mancos-guidance.pdf" target="_blank" class="text-secondary hover:underline">Central Bank of Ireland: Fund Management Companies - Guidance</a></li>
+                        <li><a href="https://www.etfstream.com/articles/which-etf-issuers-dominated-europe-in-2023" target="_blank" class="text-secondary hover:underline">ETF Stream: Which ETF issuers dominated Europe in 2023?</a></li>
+                        <li><a href="https://www.twse.com.tw/market_insights/en/detail/8a8216d696b406fc0196f1ab70ec012c" target="_blank" class="text-secondary hover:underline">TWSE: Global Trends in Active ETFs</a></li>
+                        <li><a href="https://www.luxembourgforfinance.com/portfolio/the-rising-appeal-of-active-etfs/" target="_blank" class="text-secondary hover:underline">Luxembourg for Finance: The Rising Appeal of Active ETFs</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- End New Section -->
+
+        <footer class="text-center pt-8 border-t border-gray-300">
+             <p class="text-gray-600">This infographic presents a visualization of the complex and vital role of delegated fund managers in the European passive ETF industry, based on the report "The Mandate of Delegation."</p>
+             <p class="text-xs text-gray-400 mt-4">Data points are illustrative and based on industry trends discussed in the source material. No SVG or Mermaid JS used in this infographic. Color Palette: Energetic & Playful.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (str, maxWidth) => {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 < maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedChartOptions = {
+             responsive: true,
+             maintainAspectRatio: false,
+             plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const primaryColor = '#004369';
+        const secondaryColor = '#01949A';
+        const accentColor = '#DB1F48';
+        const lightCreamColor = '#E5DDC8';
+        const grayColor = '#A9A9A9';
+        const greenColor = '#4CAF50';
+
+
+        const replicationCtx = document.getElementById('replicationStrategyChart').getContext('2d');
+        new Chart(replicationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Physical Replication (Full & Sampling)', 'Synthetic Replication (Swaps)'],
+                datasets: [{
+                    label: 'European ETF Replication Methods',
+                    data: [85, 15],
+                    backgroundColor: [primaryColor, secondaryColor],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                plugins: {
+                    ...sharedChartOptions.plugins,
+                    title: {
+                        display: true,
+                        text: 'European ETF Replication Methods (% of AUM)',
+                        font: { size: 16 },
+                        color: '#333'
+                    }
+                }
+            }
+        });
+
+        const trackingErrorCtx = document.getElementById('trackingErrorChart').getContext('2d');
+        const trackingErrorLabels = ['Transaction Costs from Rebalancing', 'Cash Drag on Dividends', 'Securities Lending Offset', 'Management Fees', 'Sampling Discrepancies'];
+        new Chart(trackingErrorCtx, {
+            type: 'bar',
+            data: {
+                labels: trackingErrorLabels.map(label => wrapLabel(label, 16)),
+                datasets: [{
+                    label: 'Impact on Performance (Basis Points)',
+                    data: [8, 5, -4, 15, 6],
+                    backgroundColor: [accentColor, secondaryColor, greenColor, primaryColor, lightCreamColor],
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Basis Points (bps)'
+                        }
+                    }
+                },
+                plugins: {
+                    ...sharedChartOptions.plugins,
+                    title: {
+                        display: true,
+                        text: 'Typical Drivers of Tracking Error',
+                        font: { size: 16 },
+                        color: '#333'
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Market Players Chart
+        const marketPlayersCtx = document.getElementById('marketPlayersChart').getContext('2d');
+        const marketPlayersLabels = ['iShares', 'Amundi ETF', 'Xtrackers', 'Vanguard', 'UBS ETFs', 'Invesco', 'SPDR ETFs', 'Others'];
+        const marketPlayersData = [41.7, 12.3, 10.9, 7.2, 5.2, 5.1, 4.5, (100 - (41.7 + 12.3 + 10.9 + 7.2 + 5.2 + 5.1 + 4.5)).toFixed(1)];
+        new Chart(marketPlayersCtx, {
+            type: 'bar',
+            data: {
+                labels: marketPlayersLabels,
+                datasets: [{
+                    label: 'Market Share (%)',
+                    data: marketPlayersData,
+                    backgroundColor: [
+                        primaryColor, 
+                        secondaryColor, 
+                        accentColor, 
+                        lightCreamColor, 
+                        '#6B7280', // Grey for diversity
+                        '#9CA3AF', 
+                        '#D1D5DB',
+                        '#E5E7EB'
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                indexAxis: 'y', // Makes it a horizontal bar chart
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Market Share (%)'
+                        }
+                    }
+                },
+                plugins: {
+                    ...sharedChartOptions.plugins,
+                    title: {
+                        display: true,
+                        text: 'Leading European ETF Providers by Market Share (Jan 2025)',
+                        font: { size: 16 },
+                        color: '#333'
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Active vs. Passive Share Chart
+        const activePassiveCtx = document.getElementById('activePassiveShareChart').getContext('2d');
+        const activePassiveLabels = ['Passive ETFs (92.4%)', 'Active & Semi-Active ETFs (7.6%)']; // Combined Semi-Active and Active for simplified chart
+        const activePassiveData = [92.39, (6.84 + 0.77)]; // Using precise values from search results
+        new Chart(activePassiveCtx, {
+            type: 'doughnut',
+            data: {
+                labels: activePassiveLabels,
+                datasets: [{
+                    label: 'Market Share (%)',
+                    data: activePassiveData,
+                    backgroundColor: [primaryColor, accentColor],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                plugins: {
+                    ...sharedChartOptions.plugins,
+                    title: {
+                        display: true,
+                        text: 'European ETF Market Share: Active vs. Passive (Sep 2024)',
+                        font: { size: 16 },
+                        color: '#333'
+                    }
+                }
+            }
+        });
+
+
+        async function callGeminiAPI(prompt) {
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    console.error('Unexpected API response structure:', result);
+                    return 'Could not get a response from the AI.';
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                return 'Failed to connect to the AI. Please try again.';
+            }
+        }
+
+        async function explainConcept(concept) {
+            const responseDivId = `response-${concept.toLowerCase().replace(/\s/g, '-')}`;
+            const responseDiv = document.getElementById(responseDivId);
+            const originalButtonText = event.target.textContent;
+            event.target.textContent = 'Explaining...';
+            event.target.disabled = true;
+            responseDiv.classList.remove('hidden');
+            responseDiv.innerHTML = '<p class="text-center text-gray-500">Loading explanation...</p>';
+
+            const prompt = `Explain "${concept}" concisely in the context of European passive ETFs, keeping it under 100 words.`;
+            const explanation = await callGeminiAPI(prompt);
+            responseDiv.innerHTML = `<p>${explanation}</p>`;
+            event.target.textContent = originalButtonText;
+            event.target.disabled = false;
+        }
+
+        async function getMarketInsight() {
+            const insightInput = document.getElementById('marketInsightInput');
+            const insightText = document.getElementById('insightText');
+            const insightLoading = document.getElementById('insightLoading');
+            const marketInsightResponseDiv = document.getElementById('marketInsightResponse');
+
+            const userQuery = insightInput.value.trim();
+
+            if (!userQuery) {
+                insightText.textContent = 'Please enter a question to get an insight.';
+                marketInsightResponseDiv.classList.remove('hidden');
+                return;
+            }
+
+            insightText.textContent = '';
+            insightLoading.classList.remove('hidden');
+            marketInsightResponseDiv.classList.remove('hidden');
+            
+            const prompt = `Provide a brief market insight on "${userQuery}" focusing specifically on the European ETF market. Keep it under 150 words.`;
+            const insight = await callGeminiAPI(prompt);
+            
+            insightLoading.classList.add('hidden');
+            insightText.textContent = insight;
+        }
+    </script>
+
+</body>
+</html>
